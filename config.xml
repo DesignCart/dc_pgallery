@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>dc_pgallery</name>
+    <displayName><![CDATA[Design Cart Gallery]]></displayName>
+    <version><![CDATA[2.0.0]]></version>
+    <description><![CDATA[Image galleries via {dcgallery} shortcode in CMS and product content. GLightbox, Macy.js, Swiper.]]></description>
+    <author><![CDATA[Design Cart]]></author>
+    <tab><![CDATA[front_office_features]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+</module>
