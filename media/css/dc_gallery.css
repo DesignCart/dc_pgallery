@@ -1,0 +1,294 @@
+/* DC Gallery — GLightbox + Macy + Swiper */
+
+.dc-gallery-wrap {
+    margin: 1rem 0;
+    box-sizing: border-box;
+    width: 100%;
+    clear: both;
+}
+
+.dc-gallery-wrap .dc-gallery {
+    margin: 0;
+}
+
+.dc-gallery-powered {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 6px;
+    line-height: 1;
+}
+
+.dc-gallery-powered a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.dc-gallery-powered a:hover,
+.dc-gallery-powered a:focus {
+    color: #64748b;
+    text-decoration: none;
+}
+
+.dc-gallery-powered__text {
+    letter-spacing: 0.01em;
+    flex: 0 0 auto;
+}
+
+.dc-gallery-powered__logo {
+    display: inline-block;
+    height: 16px;
+    width: auto;
+    max-width: 16px;
+    max-height: 16px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    object-fit: contain;
+    vertical-align: middle;
+    flex: 0 0 auto;
+}
+
+/* Powered-by: themes/CMS often set img { width:100% } — lock logo at 16px */
+.dc-gallery-wrap .dc-gallery-powered a,
+.product-description .dc-gallery-wrap .dc-gallery-powered a,
+.page-content .dc-gallery-wrap .dc-gallery-powered a,
+.page-cms .dc-gallery-wrap .dc-gallery-powered a,
+#content .dc-gallery-wrap .dc-gallery-powered a {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    width: auto !important;
+    max-width: none !important;
+    font-size: 10px !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+}
+
+.dc-gallery-wrap .dc-gallery-powered a img.dc-gallery-powered__logo,
+.product-description .dc-gallery-wrap .dc-gallery-powered a img.dc-gallery-powered__logo,
+.page-content .dc-gallery-wrap .dc-gallery-powered a img.dc-gallery-powered__logo,
+.page-cms .dc-gallery-wrap .dc-gallery-powered a img.dc-gallery-powered__logo,
+#content .dc-gallery-wrap .dc-gallery-powered a img.dc-gallery-powered__logo,
+.dc-gallery-powered a img.dc-gallery-powered__logo {
+    display: inline-block !important;
+    width: auto !important;
+    height: 16px !important;
+    max-width: 16px !important;
+    max-height: 16px !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    object-fit: contain !important;
+    vertical-align: middle !important;
+    flex: 0 0 auto !important;
+}
+
+.dc-gallery {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.dc-gallery *,
+.dc-gallery *::before,
+.dc-gallery *::after {
+    box-sizing: border-box;
+}
+
+/* —— Normal grid: aspect-ratio + object-fit on img, no absolute —— */
+.dc-gallery--normal {
+    display: grid;
+    grid-template-columns: repeat(var(--dcg-cols, 4), minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    align-items: start;
+}
+
+.dc-gallery--normal > .dcg-glightbox {
+    display: block;
+    min-width: 0;
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.dc-gallery--normal > .dcg-glightbox img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: var(--dcg-aspect, 1 / 1);
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* —— Macy tiles —— */
+.dc-gallery--tiles .dcg-macy-inner {
+    position: relative;
+}
+
+.dc-gallery--tiles .dcg-macy-item {
+    padding: 0 6px 12px;
+}
+
+.dc-gallery--tiles .dcg-glightbox {
+    display: block;
+    text-decoration: none;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dc-gallery--tiles .dcg-glightbox img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+/* —— Swiper shared —— */
+.dc-gallery.dcg-swiper {
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.dc-gallery .swiper-button-next,
+.dc-gallery .swiper-button-prev {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: var(--dcg-nav-bg, #111111);
+    color: var(--dcg-nav-color, #ffffff);
+    opacity: var(--dcg-nav-opacity, 0.45);
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dc-gallery .swiper-button-next .swiper-navigation-icon,
+.dc-gallery .swiper-button-prev .swiper-navigation-icon {
+    display: block;
+    width: 10px;
+    height: 18px;
+    flex: 0 0 auto;
+}
+
+.dc-gallery .swiper-button-prev .swiper-navigation-icon {
+    transform: rotate(180deg);
+}
+
+.dc-gallery .swiper-button-next::after,
+.dc-gallery .swiper-button-prev::after {
+    display: none;
+    content: none;
+}
+
+.dc-gallery:hover .swiper-button-next,
+.dc-gallery:hover .swiper-button-prev {
+    opacity: var(--dcg-nav-hover-opacity, 1);
+}
+
+.dc-gallery .swiper-button-next:hover,
+.dc-gallery .swiper-button-prev:hover {
+    transform: scale(1.04);
+}
+
+.dc-gallery.dcg-swiper .swiper-pagination-bullet-active {
+    background: #333;
+}
+
+.dc-gallery .dcg-slide-link,
+.dc-gallery .dcg-slide-media {
+    display: block;
+    text-decoration: none;
+}
+
+.dc-gallery .dcg-slide-link img,
+.dc-gallery .dcg-slide-media img,
+.dc-gallery .dcg-thumb-link img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* Coverflow slide width */
+.dc-gallery--coverflow .swiper-slide {
+    width: 72%;
+    max-width: 480px;
+}
+
+/* Cards */
+.dc-gallery--cards.dcg-swiper {
+    min-height: 360px;
+    padding: 28px 12px 48px;
+}
+
+/* —— Thumbs gallery —— */
+.dc-gallery--thumbs .dcg-swiper-main {
+    width: 100%;
+    margin-bottom: 14px;
+    padding-bottom: 36px;
+}
+
+.dc-gallery--thumbs .dcg-swiper-thumbs {
+    width: 100%;
+    padding: 4px 0;
+}
+
+.dc-gallery--thumbs .dcg-swiper-thumbs .swiper-slide {
+    width: 88px;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+}
+
+.dc-gallery--thumbs .dcg-swiper-thumbs .swiper-slide-thumb-active {
+    opacity: 1;
+}
+
+.dc-gallery--thumbs .swiper-slide-thumb-active .dcg-thumb-link img {
+    outline: 2px solid rgba(0, 0, 0, 0.35);
+    outline-offset: -2px;
+}
+
+/* CMS / theme overrides */
+.page-content .dc-gallery img,
+.page-cms .dc-gallery img,
+.product-description .dc-gallery img,
+#content .dc-gallery img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+/* Accordion (designcart) — keep grid children as direct cells, not wrapped in <code> */
+.dc-product-accordion .product-description .dc-gallery--normal {
+    display: grid;
+    grid-template-columns: repeat(var(--dcg-cols, 4), minmax(0, 1fr));
+}
+
+.dc-product-accordion .product-description .dc-gallery--normal > .dcg-glightbox {
+    display: block;
+    min-width: 0;
+}
